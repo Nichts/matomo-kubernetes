@@ -47,7 +47,7 @@ initContainers:
       runAsUser: {{.Values.matomo.runAsUser}}
       privileged: false
       allowPrivilegeEscalation: false
-    imagePullPolicy: Always
+    imagePullPolicy: {{ .Values.global.imagePullPolicy | quote }}
     env:
     - name: MATOMO_FIRST_USER_NAME
       value: {{.Values.matomo.dashboard.firstuser.username}}

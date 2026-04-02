@@ -19,7 +19,7 @@ spec:
           containers:
           - name: matomo-jobs-corearchive
             image: {{ printf "%s/%s" .Values.global.imageRegistry .Values.matomo.image }}
-            imagePullPolicy: Always
+            imagePullPolicy: {{ .Values.global.imagePullPolicy | quote }}
             {{- if .Values.matomo.cronJobs.coreArchive.resources }}
             resources:
 {{ toYaml .Values.matomo.cronJobs.coreArchive.resources | indent 14 }}

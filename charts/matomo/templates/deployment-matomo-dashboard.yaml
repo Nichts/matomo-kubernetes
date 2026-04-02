@@ -36,7 +36,7 @@ spec:
           privileged: false
           allowPrivilegeEscalation: false
         image: {{ printf "%s/%s" .Values.global.imageRegistry "hipages/php-fpm_exporter:2.2.0" }}
-        imagePullPolicy: Always
+        imagePullPolicy: {{ .Values.global.imagePullPolicy | quote }}
         env:
         - name: PHP_FPM_FIX_PROCESS_COUNT
           value: "true"
@@ -94,7 +94,7 @@ spec:
           runAsUser: {{.Values.matomo.runAsUser}}
           privileged: false
           allowPrivilegeEscalation: false
-        imagePullPolicy: Always
+        imagePullPolicy: {{ .Values.global.imagePullPolicy | quote }}
         env:
           - name: MATOMO_DB_PASSWORD
             valueFrom:

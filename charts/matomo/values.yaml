@@ -18,6 +18,7 @@ global:
   ##
   # -- Global image pull secrets
   imagePullSecrets: []
+  imagePullPolicy: IfNotPresent
 # -- Namespace to install Matomo in, default matomo.
 namespace: matomo
 matomo:
